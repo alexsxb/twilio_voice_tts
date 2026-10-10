@@ -1,0 +1,74 @@
+{
+  "title": "Twilio Voice TTS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Twilio-API einrichten",
+        "description": "Zugangsdaten und Absender einmal konfigurieren. Anschließend Empfänger als Untereinträge hinzufügen.",
+        "data": {
+          "account_sid": "Account SID",
+          "api_key": "API Key SID",
+          "api_secret": "API Key Secret",
+          "from_number": "Absendernummer (+...)",
+          "voice": "Standard-Stimme",
+          "language": "Standard-Sprache",
+          "loop": "Standard-Wiederholungen"
+        }
+      }
+    },
+    "error": {
+      "invalid_config": "Bitte SID, Key, Secret, Telefonnummer, Stimme und Sprache prüfen."
+    },
+    "abort": {
+      "already_configured": "Dieser Twilio-Account ist bereits eingerichtet. Dort einen Empfänger hinzufügen."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Twilio-API und Standardwerte ändern",
+        "description": "Der Account SID muss gleich bleiben. Empfänger werden separat als Untereinträge verwaltet.",
+        "data": {
+          "account_sid": "Account SID",
+          "api_key": "API Key SID",
+          "api_secret": "API Key Secret",
+          "from_number": "Absendernummer (+...)",
+          "voice": "Standard-Stimme",
+          "language": "Standard-Sprache",
+          "loop": "Standard-Wiederholungen"
+        }
+      }
+    },
+    "error": {
+      "invalid_config": "Ungültige Konfiguration oder anderer Account SID."
+    }
+  },
+  "config_subentries": {
+    "recipient": {
+      "title": "Empfänger",
+      "step": {
+        "user": {
+          "title": "Empfänger hinzufügen",
+          "data": {
+            "name": "Name",
+            "to_number": "Empfängernummer (+...)"
+          }
+        },
+        "reconfigure": {
+          "title": "Empfänger ändern",
+          "data": {
+            "name": "Name",
+            "to_number": "Empfängernummer (+...)"
+          }
+        }
+      },
+      "error": {
+        "invalid_recipient": "Name und Telefonnummer im E.164-Format (+...) eingeben.",
+        "duplicate_recipient": "Diese Telefonnummer ist bereits eingerichtet."
+      },
+      "abort": {
+        "already_configured": "Dieser Empfänger ist bereits eingerichtet."
+      }
+    }
+  }
+}

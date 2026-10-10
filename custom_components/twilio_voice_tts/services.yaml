@@ -1,0 +1,34 @@
+call:
+  name: Anrufen
+  description: Startet einen Twilio-TTS-Anruf und legt nach der Ansage auf.
+  fields:
+    message:
+      name: Text
+      required: true
+      selector:
+        text:
+          multiline: true
+    to:
+      name: Empfänger
+      description: Optional, E.164, z.B. +33612345678
+      selector:
+        text:
+    from_number:
+      name: Absender
+      selector:
+        text:
+    voice:
+      name: Stimme
+      selector:
+        text:
+    language:
+      name: Sprache
+      selector:
+        text:
+    loop:
+      name: Wiederholungen
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box

@@ -1,0 +1,74 @@
+{
+  "title": "Twilio Voice TTS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Twilio API",
+        "description": "Configure credentials and sender once, then add recipients as subentries.",
+        "data": {
+          "account_sid": "Account SID",
+          "api_key": "API Key SID",
+          "api_secret": "API Key Secret",
+          "from_number": "Sender number (+...)",
+          "voice": "Default voice",
+          "language": "Default language",
+          "loop": "Default repetitions"
+        }
+      }
+    },
+    "error": {
+      "invalid_config": "Check credentials, phone number, voice and language."
+    },
+    "abort": {
+      "already_configured": "This account is already configured. Add a recipient to the existing entry."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Change Twilio API and defaults",
+        "description": "Account SID must stay the same. Manage recipients separately as subentries.",
+        "data": {
+          "account_sid": "Account SID",
+          "api_key": "API Key SID",
+          "api_secret": "API Key Secret",
+          "from_number": "Sender number (+...)",
+          "voice": "Default voice",
+          "language": "Default language",
+          "loop": "Default repetitions"
+        }
+      }
+    },
+    "error": {
+      "invalid_config": "Invalid configuration or different Account SID."
+    }
+  },
+  "config_subentries": {
+    "recipient": {
+      "title": "Recipient",
+      "step": {
+        "user": {
+          "title": "Add recipient",
+          "data": {
+            "name": "Name",
+            "to_number": "Recipient number (+...)"
+          }
+        },
+        "reconfigure": {
+          "title": "Change recipient",
+          "data": {
+            "name": "Name",
+            "to_number": "Recipient number (+...)"
+          }
+        }
+      },
+      "error": {
+        "invalid_recipient": "Enter a name and phone number in E.164 format (+...).",
+        "duplicate_recipient": "This number is already configured."
+      },
+      "abort": {
+        "already_configured": "This recipient is already configured."
+      }
+    }
+  }
+}
